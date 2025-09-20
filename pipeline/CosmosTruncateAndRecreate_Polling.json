@@ -43,7 +43,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"expression": {
-						"value": "@equals(variables('isDeleted'), true)",
+						"value": "@not(\n  contains(\n    string(activity('ListContainers').output.body),\n    concat('\"name\":\"', pipeline().parameters.containerName, '\"')\n  )\n)\n",
 						"type": "Expression"
 					},
 					"activities": [
