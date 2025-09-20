@@ -1,0 +1,9 @@
+{
+	"name": "rf-adf-carpentry-ukw-001",
+	"location": "ukwest",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "451fc158-bf9c-4799-87ee-4ab004859f68",
+		"tenantId": "9ce5ba3e-3ea7-46f2-b838-b5bb509148d6"
+	}
+}

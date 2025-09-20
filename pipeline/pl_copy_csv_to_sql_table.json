@@ -1,0 +1,162 @@
+{
+	"name": "pl_copy_csv_to_sql_table",
+	"properties": {
+		"activities": [
+			{
+				"name": "pl_trees_pump",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"writeBehavior": "insert",
+						"sqlWriterUseTableLock": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "Tree Name",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "tree_name",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Distinguishing Features",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "distinguishing_features",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Geographical Region",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "geographical_region",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Countries",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "countries",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Carpentry Uses",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "carpentry_uses",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Growth Rate (m/year)",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "growth_rate_m_year",
+									"type": "Decimal",
+									"physicalType": "decimal",
+									"scale": 2,
+									"precision": 4
+								}
+							},
+							{
+								"source": {
+									"name": "Lifespan (years)",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "lifespan_years",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "Identification Feature",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "identification_feature",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "ds_rawtrees_csv",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "ds_sql_db",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2025-09-18T17:59:46Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

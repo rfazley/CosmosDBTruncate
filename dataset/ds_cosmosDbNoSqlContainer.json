@@ -1,0 +1,44 @@
+{
+	"name": "ds_cosmosDbNoSqlContainer",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "CosmosDbNoSql1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "CosmosDbSqlApiCollection",
+		"schema": {
+			"type": "object",
+			"properties": {
+				"Tree Name": {
+					"type": "string"
+				},
+				"Distinguishing Features": {
+					"type": "string"
+				},
+				"Geographical Region": {
+					"type": "string"
+				},
+				"Countries": {
+					"type": "string"
+				},
+				"Carpentry Uses": {
+					"type": "string"
+				},
+				"Growth Rate (m/year)": {
+					"type": "string"
+				},
+				"Lifespan (years)": {
+					"type": "string"
+				},
+				"Identification Feature": {
+					"type": "string"
+				}
+			}
+		},
+		"typeProperties": {
+			"collectionName": "Trees"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

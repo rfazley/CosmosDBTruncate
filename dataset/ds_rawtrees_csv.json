@@ -1,0 +1,57 @@
+{
+	"name": "ds_rawtrees_csv",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "carpentry_trees_dataset_10000.csv",
+				"container": "rftrees-dev-ukw-container"
+			},
+			"columnDelimiter": "|",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Tree Name",
+				"type": "String"
+			},
+			{
+				"name": "Distinguishing Features",
+				"type": "String"
+			},
+			{
+				"name": "Geographical Region",
+				"type": "String"
+			},
+			{
+				"name": "Countries",
+				"type": "String"
+			},
+			{
+				"name": "Carpentry Uses",
+				"type": "String"
+			},
+			{
+				"name": "Growth Rate (m/year)",
+				"type": "String"
+			},
+			{
+				"name": "Lifespan (years)",
+				"type": "String"
+			},
+			{
+				"name": "Identification Feature",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

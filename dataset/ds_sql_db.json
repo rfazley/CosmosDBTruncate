@@ -1,0 +1,58 @@
+{
+	"name": "ds_sql_db",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "id",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "tree_name",
+				"type": "varchar"
+			},
+			{
+				"name": "distinguishing_features",
+				"type": "varchar"
+			},
+			{
+				"name": "geographical_region",
+				"type": "varchar"
+			},
+			{
+				"name": "countries",
+				"type": "varchar"
+			},
+			{
+				"name": "carpentry_uses",
+				"type": "varchar"
+			},
+			{
+				"name": "growth_rate_m_year",
+				"type": "decimal",
+				"precision": 4,
+				"scale": 2
+			},
+			{
+				"name": "lifespan_years",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "identification_feature",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "carpentry_trees"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,157 @@
+{
+	"name": "pl_copy_csv_datalake_parquet",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "ParquetSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "ParquetWriteSettings"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "Tree Name",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TreeName",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "Distinguishing Features",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "DistinguishingFeatures",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "Geographical Region",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "GeographicalRegion",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "Countries",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Countries",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "Carpentry Uses",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "CarpentryUses",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "Growth Rate (m/year)",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "GrowthRate_m_year",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "Lifespan (years)",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Lifespanyears",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "Identification Feature",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "IdentificationFeature",
+									"physicalType": "UTF8"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "ds_rawtrees_csv",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "ds_data_lakes_parquet",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2025-09-20T11:37:48Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

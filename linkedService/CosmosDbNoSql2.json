@@ -1,0 +1,12 @@
+{
+	"name": "CosmosDbNoSql2",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "CosmosDb",
+		"typeProperties": {
+			"accountEndpoint": "https://rf-cosmosdb-acc.documents.azure.com:443/",
+			"database": "rf-cosmosdb-acc"
+		}
+	}
+}
