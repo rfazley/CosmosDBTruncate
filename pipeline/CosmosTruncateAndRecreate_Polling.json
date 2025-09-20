@@ -20,7 +20,7 @@
 						"Content-Type": "application/json"
 					},
 					"url": {
-						"value": "@concat(@concat('https://management.azure.com/subscriptions/', pipeline().parameters.subscriptionId,'/resourceGroups/', pipeline().parameters.resourceGroupName,'/providers/Microsoft.DocumentDB/databaseAccounts/', pipeline().parameters.accountName,'/sqlDatabases/', pipeline().parameters.databaseName), '/containers/', pipeline().parameters.containerName, '?api-version=2025-04-15')",
+						"value": "@concat(\n  'https://management.azure.com/subscriptions/', pipeline().parameters.subscriptionId,\n  '/resourceGroups/', pipeline().parameters.resourceGroupName,\n  '/providers/Microsoft.DocumentDB/databaseAccounts/', pipeline().parameters.accountName,\n  '/sqlDatabases/', pipeline().parameters.databaseName,\n  '/containers?api-version=2025-04-15'\n)\n",
 						"type": "Expression"
 					},
 					"authentication": {
@@ -65,7 +65,7 @@
 									"Content-Type": "application/json"
 								},
 								"url": {
-									"value": "@concat(@concat('https://management.azure.com/subscriptions/', pipeline().parameters.subscriptionId,'/resourceGroups/', pipeline().parameters.resourceGroupName,'/providers/Microsoft.DocumentDB/databaseAccounts/', pipeline().parameters.accountName,'/sqlDatabases/', pipeline().parameters.databaseName), '/containers?api-version=2025-04-15')",
+									"value": "@concat(\n  'https://management.azure.com/subscriptions/', pipeline().parameters.subscriptionId,\n  '/resourceGroups/', pipeline().parameters.resourceGroupName,\n  '/providers/Microsoft.DocumentDB/databaseAccounts/', pipeline().parameters.accountName,\n  '/sqlDatabases/', pipeline().parameters.databaseName,\n  '/containers?api-version=2025-04-15'\n)\n",
 									"type": "Expression"
 								},
 								"authentication": {
@@ -143,7 +143,7 @@
 						"Content-Type": "application/json"
 					},
 					"url": {
-						"value": "@concat(@concat('https://management.azure.com/subscriptions/', pipeline().parameters.subscriptionId,'/resourceGroups/', pipeline().parameters.resourceGroupName,'/providers/Microsoft.DocumentDB/databaseAccounts/', pipeline().parameters.accountName,'/sqlDatabases/', pipeline().parameters.databaseName), '/containers/', pipeline().parameters.containerName, '?api-version=2025-04-15')",
+						"value": "@concat(\n  'https://management.azure.com/subscriptions/', pipeline().parameters.subscriptionId,\n  '/resourceGroups/', pipeline().parameters.resourceGroupName,\n  '/providers/Microsoft.DocumentDB/databaseAccounts/', pipeline().parameters.accountName,\n  '/sqlDatabases/', pipeline().parameters.databaseName,\n  '/containers/', pipeline().parameters.containerName,\n  '?api-version=2025-04-15'\n)\n",
 						"type": "Expression"
 					},
 					"body": {
